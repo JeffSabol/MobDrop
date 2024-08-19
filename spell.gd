@@ -3,7 +3,7 @@ extends AnimatedSprite2D
 var damage = 10
 
 func _ready():
-	play("cast")  # Play the initial animation
+	play("default")  # Play the initial animation
 	$Timer.start()  # Start a timer if you want to auto-destroy
 
 func _on_Area2D_body_entered(body):
