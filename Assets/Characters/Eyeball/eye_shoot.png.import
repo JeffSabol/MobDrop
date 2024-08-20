@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f3xl0cykvkj4"
-path="res://.godot/imported/spr_enemy_reg_hurt_strip4.png-1d9ba2b69fdc864e306612226832e7b5.ctex"
+uid="uid://bbl0fgcjwnq48"
+path="res://.godot/imported/eye_shoot.png-df911cedad7d88d41c54f0f69cce2fc5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/Enemies/spr_enemy_reg_hurt_strip4.png"
-dest_files=["res://.godot/imported/spr_enemy_reg_hurt_strip4.png-1d9ba2b69fdc864e306612226832e7b5.ctex"]
+source_file="res://Assets/Characters/Eyeball/eye_shoot.png"
+dest_files=["res://.godot/imported/eye_shoot.png-df911cedad7d88d41c54f0f69cce2fc5.ctex"]
 
 [params]
 

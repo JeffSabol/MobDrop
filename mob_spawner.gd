@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@export var dragon: PackedScene  = preload("res://Scenes/Enemies/dragon.tscn")
+@export var dragon: PackedScene  = preload("res://Scenes/Enemies/eyeball.tscn")
 @export var spawn_position: Vector2 = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.

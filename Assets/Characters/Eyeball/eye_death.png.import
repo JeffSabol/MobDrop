@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bf0dalqxk5uf4"
-path="res://.godot/imported/spr_monster_reg_strip4.png-beac52291c730c3ce88f22e25bff7141.ctex"
+uid="uid://57bdh05em1bs"
+path="res://.godot/imported/eye_death.png-bd905781b1a8ae1d566d3be3b4b3e08a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/Enemies/spr_monster_reg_strip4.png"
-dest_files=["res://.godot/imported/spr_monster_reg_strip4.png-beac52291c730c3ce88f22e25bff7141.ctex"]
+source_file="res://Assets/Characters/Eyeball/eye_death.png"
+dest_files=["res://.godot/imported/eye_death.png-bd905781b1a8ae1d566d3be3b4b3e08a.ctex"]
 
 [params]
 
