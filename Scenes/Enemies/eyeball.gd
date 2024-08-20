@@ -36,4 +36,8 @@ func take_damage(damage: int):
 func _on_dragon_body_entered(body: Node2D) -> void:
 	# TODO hurt the player
 	if body.name == "Player":
+		body.hurt_player()
+		#Invalid call. Nonexistent function 'get_parent_node' in base 'CharacterBody2D (player.gd)'.
+#		print("body.get_parent_node(): " + body.get_parent_node())
+
 		print("hurt player!")

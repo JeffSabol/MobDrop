@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=4 uid="uid://djuq4ykoo7gst"]
+[gd_scene load_steps=67 format=4 uid="uid://djuq4ykoo7gst"]
 
 [ext_resource type="Texture2D" uid="uid://ddoky6jhug7mm" path="res://Assets/Environment/Dungeon Tile Set.png" id="1_1qjr5"]
 [ext_resource type="Texture2D" uid="uid://yc8kvui8lim6" path="res://Assets/Environment/Old Dungeon/OldDungeon.png" id="1_yoc8x"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bbkyjah7i1ocv" path="res://Assets/Characters/Wizard/Wizardgooseassets/Run (64x64)-sheet.png" id="8_uaj31"]
 [ext_resource type="Texture2D" uid="uid://cb4diirxy1bfd" path="res://Assets/Characters/Wizard/Wizardgooseassets/Turdblast.png" id="9_b72h0"]
 [ext_resource type="PackedScene" uid="uid://bqv6glwfk0cb8" path="res://Scenes/mob_spawner.tscn" id="12_gxiwc"]
+[ext_resource type="Texture2D" uid="uid://bt2g0c7wqwylq" path="res://Assets/Characters/Wizard/Heart.png" id="12_u1j7k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m01ln"]
 texture = ExtResource("1_1qjr5")
@@ -568,6 +569,34 @@ position = Vector2(0, -46)
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAD2/wMAAAABAAIAAAD2/wQAAAABAAMAAAD3/wMAAAACAAIAAAD3/wQAAAACAAMAAAD4/wMAAAACAAIAAAD4/wQAAAACAAMAAAD5/wMAAAACAAIAAAD5/wQAAAACAAMAAAD6/wMAAAACAAIAAAD6/wQAAAACAAMAAAAFAAMAAAACAAIAAAAFAAQAAAACAAMAAAAGAAMAAAACAAIAAAAGAAQAAAACAAMAAAAHAAMAAAACAAIAAAAHAAQAAAACAAMAAAAIAAMAAAACAAIAAAAIAAQAAAACAAMAAAAJAAMAAAADAAIAAAAJAAQAAAADAAMAAAD7/wMAAAACAAIAAAD8/wMAAAACAAIAAAD9/wMAAAACAAIAAAD+/wMAAAACAAIAAAD//wMAAAACAAIAAAAAAAMAAAACAAIAAAABAAMAAAACAAIAAAACAAMAAAACAAIAAAADAAMAAAACAAIAAAAEAAMAAAACAAIAAAD7/wQAAAACAAMAAAAEAAQAAAACAAMAAAADAAQAAAACAAMAAAACAAQAAAACAAMAAAABAAQAAAACAAMAAAAAAAQAAAACAAMAAAD//wQAAAACAAMAAAD+/wQAAAACAAMAAAD9/wQAAAACAAMAAAD8/wQAAAACAAMAAAD2/wIAAAABAAEAAAD3/wIAAAACAAEAAAD4/wIAAAACAAEAAAD5/wIAAAACAAEAAAD6/wIAAAACAAEAAAD7/wIAAAACAAEAAAD8/wIAAAACAAEAAAD9/wIAAAACAAEAAAD+/wIAAAACAAEAAAD//wIAAAACAAEAAAAAAAIAAAACAAEAAAABAAIAAAACAAEAAAACAAIAAAACAAEAAAADAAIAAAACAAEAAAAEAAIAAAACAAEAAAAFAAIAAAACAAEAAAAGAAIAAAACAAEAAAAHAAIAAAACAAEAAAAIAAIAAAACAAEAAAAJAAIAAAADAAEAAAD1/wEAAAAAAAAAAAAKAAEAAAAAAAAAAAAKAAAAAAAAAAAAAAAKAP//AAAAAAAAAAD1/wAAAAAAAAAAAAD1////AAAAAAAAAAD0////AAAAAAAAAADz////AAAAAAAAAADy////AAAAAAAAAAALAP//AAAAAAAAAAAMAP//AAAAAAAAAAANAP//AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_kiqd8")
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 7.0
+offset_top = -195.0
+offset_right = 47.0
+offset_bottom = -155.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD"]
+layout_mode = 0
+offset_left = -327.0
+offset_top = -51.0
+offset_right = -271.0
+offset_bottom = -35.0
+scale = Vector2(3, 3)
+
+[node name="Heart1" type="TextureRect" parent="HUD/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("12_u1j7k")
+
+[node name="Heart2" type="TextureRect" parent="HUD/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("12_u1j7k")
+
+[node name="Heart3" type="TextureRect" parent="HUD/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("12_u1j7k")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(7, -195)

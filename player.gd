@@ -7,6 +7,7 @@ const JUMP_VELOCITY = -300.0
 enum PlayerState {IDLE, RUN, CAST, JUMP, FALLING, DASH, DEATH} 
 var state = PlayerState.IDLE
 var spell_scene = preload("res://Scenes/spell.tscn")
+var health = 3
 
 func _physics_process(delta: float) -> void:
 	# Add gravity.
@@ -32,7 +33,7 @@ func _physics_process(delta: float) -> void:
 		state = PlayerState.FALLING
 	
 	# Determine horizontal state (idle, run).
-	if velocity.x == 0 and velocity.y == 0 && state != PlayerState.CAST:
+	if velocity.x == 0 and velocity.y == 0 && state != PlayerState.CAST && state != PlayerState.DEATH:
 		state = PlayerState.IDLE
 	elif velocity.x != 0 and velocity.y == 0:
 		state = PlayerState.RUN
@@ -70,3 +71,24 @@ func cast_spell(position):
 	var spell_instance = spell_scene.instantiate()
 	spell_instance.position = world_position
 	get_parent().add_child(spell_instance)  # Add the spell to the parent (Game Node)
+
+func hurt_player():
+	health -= 1
+	# Change the heart to black
+	if health == 2:
+		$"../HUD/HBoxContainer/Heart3".set_texture(load("res://Assets/Characters/Wizard/HeartBlack.png"))
+	if health == 1:
+		$"../HUD/HBoxContainer/Heart2".set_texture(load("res://Assets/Characters/Wizard/HeartBlack.png"))
+	if health == 0:
+		$"../HUD/HBoxContainer/Heart1".set_texture(load("res://Assets/Characters/Wizard/HeartBlack.png"))
+	if health <= 0:
+		kill_player()
+
+func kill_player():
+	velocity.x = 0
+	state = PlayerState.DEATH
+	await get_tree().create_timer(0.6).timeout
+	game_over()
+
+func game_over():
+	get_tree().quit()
