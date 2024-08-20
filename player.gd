@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 150.0
+const JUMP_VELOCITY = -300.0
 
 # Enums and variables
 enum PlayerState {IDLE, RUN, CAST, JUMP, FALLING, DASH, DEATH} 
@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 		state = PlayerState.FALLING
 	
 	# Determine horizontal state (idle, run).
-	if velocity.x == 0 and velocity.y == 0:
+	if velocity.x == 0 and velocity.y == 0 && state != PlayerState.CAST:
 		state = PlayerState.IDLE
 	elif velocity.x != 0 and velocity.y == 0:
 		state = PlayerState.RUN
