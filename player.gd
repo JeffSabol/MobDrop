@@ -1,12 +1,13 @@
 extends CharacterBody2D
 
-const SPEED = 150.0
+const SPEED = 120.0
 const JUMP_VELOCITY = -300.0
 
 # Enums and variables
 enum PlayerState {IDLE, RUN, CAST, JUMP, FALLING, DASH, DEATH} 
 var state = PlayerState.IDLE
-var spell_scene = preload("res://Scenes/spell.tscn")
+var spell_scene = preload("res://Scenes/Spells/spell.tscn")
+var alternate_spell_scene = preload("res://Scenes/Spells/spell2.tscn") # Alternate spell for right-click
 var health = 3
 
 func _physics_process(delta: float) -> void:
@@ -33,7 +34,7 @@ func _physics_process(delta: float) -> void:
 		state = PlayerState.FALLING
 	
 	# Determine horizontal state (idle, run).
-	if velocity.x == 0 and velocity.y == 0 && state != PlayerState.CAST && state != PlayerState.DEATH:
+	if velocity.x == 0 and velocity.y == 0 and state != PlayerState.CAST and state != PlayerState.DEATH:
 		state = PlayerState.IDLE
 	elif velocity.x != 0 and velocity.y == 0:
 		state = PlayerState.RUN
@@ -59,16 +60,25 @@ func update_animations():
 			$AnimatedSprite2D.play("dashup")
 		PlayerState.DEATH:
 			$AnimatedSprite2D.play("death")
-	
+
 func _input(event):
 	if event is InputEventMouseButton and event.pressed:
-		cast_spell(event.position)
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			cast_spell(event.position, false)  # Left-click casts the default spell
+		elif event.button_index == MOUSE_BUTTON_RIGHT:
+			cast_spell(event.position, true)  # Right-click casts the alternate spell
 
-func cast_spell(position):
+func cast_spell(position, is_alternate_spell: bool):
 	# Convert the screen position to the world position
 	var world_position = get_global_mouse_position()
 	
-	var spell_instance = spell_scene.instantiate()
+	# Choose the spell scene based on the mouse button clicked
+	var spell_instance = null
+	if is_alternate_spell:
+		spell_instance = alternate_spell_scene.instantiate()
+	else:
+		spell_instance = spell_scene.instantiate()
+		
 	spell_instance.position = world_position
 	get_parent().add_child(spell_instance)  # Add the spell to the parent (Game Node)
 
