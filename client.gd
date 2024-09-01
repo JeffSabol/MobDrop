@@ -21,11 +21,6 @@ func _ready():
 	multiplayer.connect("peer_disconnected", Callable(self, "_on_peer_disconnected"))
 	multiplayer.connect("data_received", Callable(self, "_on_data_received"))
 	
-	# Poll for incoming packets
-	var multiplayer_peer = get_tree().get_multiplayer().get_multiplayer_peer()
-	if multiplayer_peer.get_packet_available():
-		var packet = multiplayer_peer.get_packet()
-		_on_data_received(packet)
 
 func _on_peer_connected(id):
 	print("Connected to server with ID: %d" % id)
@@ -37,6 +32,12 @@ func _on_peer_disconnected(id):
 func _process(delta):
 	if player_id != -1:
 		send_player_state()
+		
+	# Poll for incoming packets
+	var multiplayer_peer = get_tree().get_multiplayer().get_multiplayer_peer()
+	if multiplayer_peer.get_packet_available():
+		var packet = multiplayer_peer.get_packet()
+		_on_data_received(packet)
 
 func send_player_state():
 	var player_node = get_node("Player")
