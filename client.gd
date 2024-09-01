@@ -57,8 +57,10 @@ func create_packet(state):
 	return to_byte_array(state_string)
 
 func _on_data_received(packet):
+	print("Data received: %s" % packet.get_string())
 	var data = parse_packet(packet)
 	update_player_state(data)
+
 
 func parse_packet(packet):
 	var json = JSON.new()
