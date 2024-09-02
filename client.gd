@@ -61,3 +61,4 @@ func sync_player_state(id, position: Vector2, health: int):
 		player_node.health = health
 	else:
 		print("Player node not found for ID: %s" % id)
+		
