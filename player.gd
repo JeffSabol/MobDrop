@@ -10,36 +10,41 @@ var spell_scene = preload("res://Scenes/Spells/spell.tscn")
 var alternate_spell_scene = preload("res://Scenes/Spells/spell2.tscn") # Alternate spell for right-click
 var health = 3
 
+func _enter_tree() -> void:
+	set_multiplayer_authority(name.to_int())
+
 func _physics_process(delta: float) -> void:
-	# Add gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+	if is_multiplayer_authority():
+		# Add gravity.
+		if not is_on_floor():
+			velocity += get_gravity() * delta
 
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_up") and is_on_floor():
-		state = PlayerState.JUMP
-		velocity.y = JUMP_VELOCITY
+		# Handle jump.
+		if Input.is_action_just_pressed("ui_up") and is_on_floor():
+			state = PlayerState.JUMP
+			velocity.y = JUMP_VELOCITY
 
-	# Handle movement/deceleration.
-	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		# Handle movement/deceleration.
+		var direction := Input.get_axis("ui_left", "ui_right")
+		if direction:
+			velocity.x = direction * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			
+		# Determine vertical state (jumping, falling).
+		if velocity.y < 0:
+			state = PlayerState.JUMP
+		elif velocity.y > 0:
+			state = PlayerState.FALLING
 		
-	# Determine vertical state (jumping, falling).
-	if velocity.y < 0:
-		state = PlayerState.JUMP
-	elif velocity.y > 0:
-		state = PlayerState.FALLING
-	
-	# Determine horizontal state (idle, run).
-	if velocity.x == 0 and velocity.y == 0 and state != PlayerState.CAST and state != PlayerState.DEATH:
-		state = PlayerState.IDLE
-	elif velocity.x != 0 and velocity.y == 0:
-		state = PlayerState.RUN
+		# Determine horizontal state (idle, run).
+		if velocity.x == 0 and velocity.y == 0 and state != PlayerState.CAST and state != PlayerState.DEATH:
+			state = PlayerState.IDLE
+		elif velocity.x != 0 and velocity.y == 0:
+			state = PlayerState.RUN
 
-	update_animations()
+		update_animations()
+		
 	move_and_slide()
 
 # Update animations based on player state

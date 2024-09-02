@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://dw4kwarieks75"]
+[gd_scene load_steps=62 format=3 uid="uid://dw4kwarieks75"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_01cc4"]
 [ext_resource type="Texture2D" uid="uid://drcwjny0fsmfp" path="res://Assets/Characters/Wizard/Wizardgooseassets/Lay(64x64).png" id="2_jusky"]
@@ -399,6 +399,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0o1sq"]
 size = Vector2(23, 25)
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_mgil4"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(7, -195)
 script = ExtResource("1_01cc4")
@@ -413,3 +418,6 @@ frame_progress = 0.0333466
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, 4.5)
 shape = SubResource("RectangleShape2D_0o1sq")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_mgil4")

@@ -1,13 +1,13 @@
-[gd_scene load_steps=8 format=4 uid="uid://djuq4ykoo7gst"]
+[gd_scene load_steps=8 format=4 uid="uid://crkditcfd2qp4"]
 
-[ext_resource type="Texture2D" uid="uid://ddoky6jhug7mm" path="res://Assets/Environment/Dungeon Tile Set.png" id="1_1qjr5"]
-[ext_resource type="Script" path="res://client.gd" id="1_dhi7a"]
-[ext_resource type="Texture2D" uid="uid://yc8kvui8lim6" path="res://Assets/Environment/Old Dungeon/OldDungeon.png" id="1_yoc8x"]
-[ext_resource type="PackedScene" uid="uid://dw4kwarieks75" path="res://player.tscn" id="5_857qb"]
-[ext_resource type="Texture2D" uid="uid://bt2g0c7wqwylq" path="res://Assets/Characters/Wizard/Heart.png" id="12_u1j7k"]
+[ext_resource type="Script" path="res://Scenes/Multiplayer/multiplayer_test.gd" id="1_wmox0"]
+[ext_resource type="PackedScene" uid="uid://dw4kwarieks75" path="res://player.tscn" id="2_3vt2p"]
+[ext_resource type="Texture2D" uid="uid://ddoky6jhug7mm" path="res://Assets/Environment/Dungeon Tile Set.png" id="3_douiy"]
+[ext_resource type="Texture2D" uid="uid://yc8kvui8lim6" path="res://Assets/Environment/Old Dungeon/OldDungeon.png" id="4_awikq"]
+[ext_resource type="Texture2D" uid="uid://bt2g0c7wqwylq" path="res://Assets/Characters/Wizard/Heart.png" id="5_hkac2"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yyw7p"]
-texture = ExtResource("1_1qjr5")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ri4io"]
+texture = ExtResource("3_douiy")
 1:1/0 = 0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:1/0 = 0
@@ -153,12 +153,13 @@ texture = ExtResource("1_1qjr5")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSet" id="TileSet_kiqd8"]
+[sub_resource type="TileSet" id="TileSet_8pvnt"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_yyw7p")
+sources/0 = SubResource("TileSetAtlasSource_ri4io")
 
-[node name="Game" type="Node2D"]
-script = ExtResource("1_dhi7a")
+[node name="MultiplayerTest" type="Node2D"]
+script = ExtResource("1_wmox0")
+player_scene = ExtResource("2_3vt2p")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -327.0
@@ -166,13 +167,17 @@ offset_top = -249.0
 offset_right = 1593.0
 offset_bottom = 831.0
 scale = Vector2(0.34, 0.34)
-texture = ExtResource("1_yoc8x")
+texture = ExtResource("4_awikq")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-position = Vector2(0, -46)
-scale = Vector2(2, 2)
-tile_map_data = PackedByteArray("AAD2/wMAAAABAAIAAAD2/wQAAAABAAMAAAD3/wMAAAACAAIAAAD3/wQAAAACAAMAAAD4/wMAAAACAAIAAAD4/wQAAAACAAMAAAD5/wMAAAACAAIAAAD5/wQAAAACAAMAAAD6/wMAAAACAAIAAAD6/wQAAAACAAMAAAAFAAMAAAACAAIAAAAFAAQAAAACAAMAAAAGAAMAAAACAAIAAAAGAAQAAAACAAMAAAAHAAMAAAACAAIAAAAHAAQAAAACAAMAAAAIAAMAAAACAAIAAAAIAAQAAAACAAMAAAAJAAMAAAADAAIAAAAJAAQAAAADAAMAAAD7/wMAAAACAAIAAAD8/wMAAAACAAIAAAD9/wMAAAACAAIAAAD+/wMAAAACAAIAAAD//wMAAAACAAIAAAAAAAMAAAACAAIAAAABAAMAAAACAAIAAAACAAMAAAACAAIAAAADAAMAAAACAAIAAAAEAAMAAAACAAIAAAD7/wQAAAACAAMAAAAEAAQAAAACAAMAAAADAAQAAAACAAMAAAACAAQAAAACAAMAAAABAAQAAAACAAMAAAAAAAQAAAACAAMAAAD//wQAAAACAAMAAAD+/wQAAAACAAMAAAD9/wQAAAACAAMAAAD8/wQAAAACAAMAAAD2/wIAAAABAAEAAAD3/wIAAAACAAEAAAD4/wIAAAACAAEAAAD5/wIAAAACAAEAAAD6/wIAAAACAAEAAAD7/wIAAAACAAEAAAD8/wIAAAACAAEAAAD9/wIAAAACAAEAAAD+/wIAAAACAAEAAAD//wIAAAACAAEAAAAAAAIAAAACAAEAAAABAAIAAAACAAEAAAACAAIAAAACAAEAAAADAAIAAAACAAEAAAAEAAIAAAACAAEAAAAFAAIAAAACAAEAAAAGAAIAAAACAAEAAAAHAAIAAAACAAEAAAAIAAIAAAACAAEAAAAJAAIAAAADAAEAAAD1/wEAAAAAAAAAAAAKAAEAAAAAAAAAAAAKAAAAAAAAAAAAAAAKAP//AAAAAAAAAAD1/wAAAAAAAAAAAAD1////AAAAAAAAAAD0////AAAAAAAAAADz////AAAAAAAAAADy////AAAAAAAAAAALAP//AAAAAAAAAAAMAP//AAAAAAAAAAANAP//AAAAAAAAAAA=")
-tile_set = SubResource("TileSet_kiqd8")
+[node name="join" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "join"
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://player.tscn")
+spawn_path = NodePath("..")
+spawn_limit = 4
 
 [node name="HUD" type="Control" parent="."]
 layout_mode = 3
@@ -192,23 +197,23 @@ scale = Vector2(3, 3)
 
 [node name="Heart1" type="TextureRect" parent="HUD/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("12_u1j7k")
+texture = ExtResource("5_hkac2")
 
 [node name="Heart2" type="TextureRect" parent="HUD/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("12_u1j7k")
+texture = ExtResource("5_hkac2")
 
 [node name="Heart3" type="TextureRect" parent="HUD/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("12_u1j7k")
-
-[node name="Player" parent="." instance=ExtResource("5_857qb")]
+texture = ExtResource("5_hkac2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -66)
 
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-spawn_path = NodePath("../Players")
-spawn_limit = 2
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(0, -46)
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAD2/wMAAAABAAIAAAD2/wQAAAABAAMAAAD3/wMAAAACAAIAAAD3/wQAAAACAAMAAAD4/wMAAAACAAIAAAD4/wQAAAACAAMAAAD5/wMAAAACAAIAAAD5/wQAAAACAAMAAAD6/wMAAAACAAIAAAD6/wQAAAACAAMAAAAFAAMAAAACAAIAAAAFAAQAAAACAAMAAAAGAAMAAAACAAIAAAAGAAQAAAACAAMAAAAHAAMAAAACAAIAAAAHAAQAAAACAAMAAAAIAAMAAAACAAIAAAAIAAQAAAACAAMAAAAJAAMAAAADAAIAAAAJAAQAAAADAAMAAAD7/wMAAAACAAIAAAD8/wMAAAACAAIAAAD9/wMAAAACAAIAAAD+/wMAAAACAAIAAAD//wMAAAACAAIAAAAAAAMAAAACAAIAAAABAAMAAAACAAIAAAACAAMAAAACAAIAAAADAAMAAAACAAIAAAAEAAMAAAACAAIAAAD7/wQAAAACAAMAAAAEAAQAAAACAAMAAAADAAQAAAACAAMAAAACAAQAAAACAAMAAAABAAQAAAACAAMAAAAAAAQAAAACAAMAAAD//wQAAAACAAMAAAD+/wQAAAACAAMAAAD9/wQAAAACAAMAAAD8/wQAAAACAAMAAAD2/wIAAAABAAEAAAD3/wIAAAACAAEAAAD4/wIAAAACAAEAAAD5/wIAAAACAAEAAAD6/wIAAAACAAEAAAD7/wIAAAACAAEAAAD8/wIAAAACAAEAAAD9/wIAAAACAAEAAAD+/wIAAAACAAEAAAD//wIAAAACAAEAAAAAAAIAAAACAAEAAAABAAIAAAACAAEAAAACAAIAAAACAAEAAAADAAIAAAACAAEAAAAEAAIAAAACAAEAAAAFAAIAAAACAAEAAAAGAAIAAAACAAEAAAAHAAIAAAACAAEAAAAIAAIAAAACAAEAAAAJAAIAAAADAAEAAAD1/wEAAAAAAAAAAAAKAAEAAAAAAAAAAAAKAAAAAAAAAAAAAAAKAP//AAAAAAAAAAD1/wAAAAAAAAAAAAD1////AAAAAAAAAAD0////AAAAAAAAAADz////AAAAAAAAAADy////AAAAAAAAAAALAP//AAAAAAAAAAAMAP//AAAAAAAAAAANAP//AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_8pvnt")
 
-[node name="Players" type="Node2D" parent="."]
+[connection signal="pressed" from="join" to="." method="_on_join_pressed"]
