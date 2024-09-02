@@ -170,8 +170,10 @@ scale = Vector2(0.34, 0.34)
 texture = ExtResource("4_awikq")
 
 [node name="join" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = -282.0
+offset_top = -193.0
+offset_right = -234.0
+offset_bottom = -161.0
 text = "join"
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
