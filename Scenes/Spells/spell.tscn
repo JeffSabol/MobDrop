@@ -159,9 +159,9 @@ sprite_frames = SubResource("SpriteFrames_ie13v")
 autoplay = "default"
 script = ExtResource("2_apj4f")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Implusion" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Implusion"]
 scale = Vector2(2.495, 2.495)
 shape = SubResource("CircleShape2D_jy4v2")
 
@@ -175,5 +175,5 @@ stream = ExtResource("3_u8o5n")
 volume_db = -18.0
 autoplay = true
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="area_entered" from="Implusion" to="." method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
