@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://djuq4ykoo7gst"]
+[gd_scene load_steps=67 format=4 uid="uid://djuq4ykoo7gst"]
 
 [ext_resource type="Texture2D" uid="uid://ddoky6jhug7mm" path="res://Assets/Environment/Dungeon Tile Set.png" id="1_1qjr5"]
 [ext_resource type="Script" path="res://client.gd" id="1_dhi7a"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://bj5tqy1a1sbeh" path="res://Assets/Characters/Wizard/Wizardgooseassets/Jump (32x32).png" id="7_f0m15"]
 [ext_resource type="Texture2D" uid="uid://bbkyjah7i1ocv" path="res://Assets/Characters/Wizard/Wizardgooseassets/Run (64x64)-sheet.png" id="8_uaj31"]
 [ext_resource type="Texture2D" uid="uid://cb4diirxy1bfd" path="res://Assets/Characters/Wizard/Wizardgooseassets/Turdblast.png" id="9_b72h0"]
-[ext_resource type="PackedScene" uid="uid://bqv6glwfk0cb8" path="res://Scenes/mob_spawner.tscn" id="12_gxiwc"]
 [ext_resource type="Texture2D" uid="uid://bt2g0c7wqwylq" path="res://Assets/Characters/Wizard/Heart.png" id="12_u1j7k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m01ln"]
@@ -617,6 +616,3 @@ shape = SubResource("RectangleShape2D_0o1sq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -66)
-
-[node name="MobSpawner" parent="." instance=ExtResource("12_gxiwc")]
-position = Vector2(-143, -70)

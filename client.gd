@@ -8,11 +8,7 @@ func _ready():
 	var peer = ENetMultiplayerPeer.new()
 	var result = peer.create_client(server_ip, server_port)
 	
-	if result != OK:
-		print("Failed to connect to server: %s" % result)
-		return
-	
-	get_tree().get_multiplayer().set_multiplayer_peer(peer)
+	get_tree().get_multiplayer().multiplayer_peer = peer
 	print("Connected to server at %s on port %d" % [server_ip, server_port])
 	
 	# Connect signals directly to the MultiplayerAPI
@@ -20,24 +16,24 @@ func _ready():
 	multiplayer.connect("peer_connected", Callable(self, "_on_peer_connected"))
 	multiplayer.connect("peer_disconnected", Callable(self, "_on_peer_disconnected"))
 	multiplayer.connect("data_received", Callable(self, "_on_data_received"))
-	
 
 func _on_peer_connected(id):
-	print("Connected to server with ID: %d" % id)
-	player_id = id  # Assign ID when connected
+	print("Connected to server with ID: %d" % get_tree().get_multiplayer().get_unique_id())
+	player_id = get_tree().get_multiplayer().get_unique_id() # Assign ID when connected
 
 func _on_peer_disconnected(id):
-	print("Disconnected from server with ID: %d" % id)
+	print("Disconnected from server with ID: %d" % player_id)
 
 func _process(delta):
-	if player_id != -1:
-		send_player_state()
-		
-	# Poll for incoming packets
+	# Handle incoming packets
 	var multiplayer_peer = get_tree().get_multiplayer().get_multiplayer_peer()
-	if multiplayer_peer.get_packet_available():
+	if multiplayer_peer.get_available_packet_count() > 0:
 		var packet = multiplayer_peer.get_packet()
 		_on_data_received(packet)
+		
+	# Send player state periodically
+	if player_id != -1:
+		send_player_state()
 
 func send_player_state():
 	var player_node = get_node("Player")
@@ -61,13 +57,13 @@ func create_packet(state):
 	var state_string = json.stringify(state)
 	if state_string.is_empty():
 		print("Failed to serialize state to JSON.")
+		return null
 	return to_byte_array(state_string)
 
 func _on_data_received(packet):
-	print("Data received: %s" % packet.get_string())
 	var data = parse_packet(packet)
-	update_player_state(data)
-
+	if data:
+		update_player_state(data)
 
 func parse_packet(packet):
 	var json = JSON.new()
@@ -93,9 +89,15 @@ func update_player_state(data):
 		player_node.position = Vector2(position["x"], position["y"])
 		player_node.health = health
 	else:
-		print("Player node not found: %s" % id)
+		print("Player node not found for ID: %s" % id)
 
 func to_byte_array(data):
 	var buf = PackedByteArray()
 	buf.append_array(data.to_utf8_buffer())
 	return buf
+
+# Define the remote function to handle data from the server
+@rpc
+func receive_data(data):
+	print("Data received from server: %s" % data)
+	update_player_state(data)
