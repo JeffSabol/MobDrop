@@ -21,3 +21,6 @@ func _add_player(id = 1):
 func _on_join_pressed():
 	peer.create_client("157.230.212.179", 35000)
 	multiplayer.multiplayer_peer = peer
+
+func _on_player_disconnected(id):
+	print("Player id left: " + id)
