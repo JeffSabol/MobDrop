@@ -32,7 +32,7 @@ func _on_player_disconnected(id):
 			player.queue_free()
 
 		# Notify all clients to remove this player node as well
-		get_tree().multiplayer.send_rpc("remove_player_on_clients", id)
+		rpc("remove_player_on_clients", id)
 
 @rpc("call_local")
 func remove_player_on_clients(id):
