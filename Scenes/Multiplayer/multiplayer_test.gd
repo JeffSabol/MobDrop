@@ -12,7 +12,6 @@ var peer = ENetMultiplayerPeer.new()
 		#multiplayer.multiplayer_peer = peer
 		#multiplayer.peer_connected.connect(_add_player)
 		#multiplayer.peer_disconnected.connect(_on_player_disconnected)
-		#_add_player()
 	
 func _add_player(id = 1):
 	var player = player_scene.instantiate()
