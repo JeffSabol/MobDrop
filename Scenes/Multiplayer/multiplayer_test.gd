@@ -4,13 +4,13 @@ var peer := ENetMultiplayerPeer.new()
 @export var player_scene: PackedScene
 
 # Uncomment and use this function when running as a server
-#func _ready():
-	#if get_tree().get_multiplayer().is_server():
-		#print("Creating a default server peer so others can communicate")
-		#peer.create_server(35000)
-		#multiplayer.multiplayer_peer = peer
-		#multiplayer.peer_connected.connect(_add_player)
-		#multiplayer.peer_disconnected.connect(_on_player_disconnected)
+func _ready():
+	if get_tree().get_multiplayer().is_server():
+		print("Creating a default server peer so others can communicate")
+		peer.create_server(35000)
+		multiplayer.multiplayer_peer = peer
+		multiplayer.peer_connected.connect(_add_player)
+		multiplayer.peer_disconnected.connect(_on_player_disconnected)
 
 func _add_player(id = 1):
 	var player = player_scene.instantiate()
