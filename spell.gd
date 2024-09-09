@@ -7,7 +7,6 @@ func _ready():
 	$Timer.start()  # Start a timer if you want to auto-destroy
 
 func _on_Area2D_body_entered(body):
-	print(body.name)
 	if body.name == "Eyeball":  # Assuming enemies are in this group
 		body.get_parent().take_damage(damage)
 

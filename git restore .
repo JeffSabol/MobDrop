@@ -1,0 +1,107 @@
+[33mcommit 9b353e082578d7d6dad540551bd80b25bba284f6[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmultiplayer[m[33m, [m[1;31morigin/multiplayer[m[33m)[m
+Author: JeffSabol <jeffreysabol345@gmail.com>
+Date:   Mon Sep 2 19:10:26 2024 -0400
+
+    Removed old not working client.gd
+
+[33mcommit a8d2474a43d97c2a7b183fc88bab1be3ff64d327[m
+Author: JeffSabol <jeffreysabol345@gmail.com>
+Date:   Mon Sep 2 19:10:15 2024 -0400
+
+    Export and sync player state across clients
+
+[33mcommit ef04488b4c90e9e20e5da490df4476eb37c24fcd[m
+Author: JeffSabol <jeffreysabol345@gmail.com>
+Date:   Mon Sep 2 17:08:04 2024 -0400
+
+    Added the world to multiplayer
+
+[33mcommit 008e5c637d5ec98847687b3457889e6e26870dc8[m
+Author: JeffSabol <jeffreysabol345@gmail.com>
+Date:   Mon Sep 2 14:34:29 2024 -0400
+
+    Use multiplayer synchronizer
+
+[33mcommit 39193507ffc93f3f6218b5adfbc73370cfa1fc4e[m
+Author: JeffSabol <jeffreysabol345@gmail.com>
+Date:   Mon Sep 2 13:54:00 2024 -0400
+
+    Avoiding packet buffers for multiplayer
+
+[33mcommit 16ed8802083c655cfea3efef51b124265ab2cfb2[m
+Author: JeffSabol <jeffreysabol345@gmail.com>
+Date:   Sun Sep 1 22:03:09 2024 -0400
+
+    RPC
+
+[33mcommit fae94c250c644bc038c7c1a8597d1701e3efc2cf[m
+Author: JeffSabol <jeffreysabol345@gmail.com>
+Date:   Sun Sep 1 19:13:25 2024 -0400
+
+    Fix polling to be in _process() instead of only polling once in _ready()
+
+[33mcommit d69f032ef51d44fa3eec46a8d419cea75e7ad0bb[m
+Author: Jeff <jeffreysabol345@gmail.com>
+Date:   Sun Sep 1 19:10:02 2024 -0400
+
+    Trying to poll for server packet data
+
+[33mcommit ee1e169c953a1a6f45d03e2faa2cec752b8c3a5a[m
+Author: JeffSabol <jeffreysabol345@gmail.com>
+Date:   Sun Sep 1 17:07:21 2024 -0400
+
+    Display packet data
+
+[33mcommit a34bd88077041766f5d677aa19adfff47fd51ddc[m
+Author: JeffSabol <jeffreysabol345@gmail.com>
+Date:   Sun Sep 1 16:56:06 2024 -0400
+
+    Other connected player logging
+
+[33mcommit 9197b7b659e3176e8f2a54c93b92c8ad1652ed7a[m
+Author: JeffSabol <jeffreysabol345@gmail.com>
+Date:   Sun Sep 1 16:04:42 2024 -0400
+
+    Added client code. Now the user can join a dedicated server
+
+[33mcommit 11d9bf71fb491ed660f1fa5c6bfb2e3e845db596[m[33m ([m[1;32mmain[m[33m)[m
+Author: JeffSabol <jeffreysabol345@gmail.com>
+Date:   Wed Aug 21 22:54:31 2024 -0400
+
+    Added a second spell and moved old spell to right click. Made walking speed slower to match sprite animation
+
+[33mcommit c54ed438dd76277010235e7d83e7cc31239446fe[m
+Author: JeffSabol <jeffreysabol345@gmail.com>
+Date:   Tue Aug 20 15:54:58 2024 -0400
+
+    Added basic player health and the game exits when the player dies
+
+[33mcommit dee4c8a16d9bef64a5b95a7e4b626e217fcfc9f9[m
+Author: JeffSabol <jeffreysabol345@gmail.com>
+Date:   Tue Aug 20 15:26:29 2024 -0400
+
+    Changed the dragon to an eyeball enemy to better match the theme/art
+
+[33mcommit 6c761b81c9f0dd1255465e992d9fd0b94aa8c7e2[m
+Author: JeffSabol <jeffreysabol345@gmail.com>
+Date:   Mon Aug 19 21:52:16 2024 -0400
+
+    Added an enemy and a spawner and working spell
+
+[33mcommit f7e5d7b1f7b938c6d0625532e6e715729f314ba5[m
+Author: JeffSabol <jeffreysabol345@gmail.com>
+Date:   Mon Aug 19 19:39:44 2024 -0400
+
+    Fix calling non-existent cast animation
+
+[33mcommit 86d5005164a9373259187d6e564de385734dd61d[m
+Author: JeffSabol <jeffreysabol345@gmail.com>
+Date:   Mon Aug 19 19:13:22 2024 -0400
+
+    A basic spell is now casted where the player clicks on screen
+
+[33mcommit 479ca77f1e5da126cadc326688be4ccd465c2d74[m
+Author: JeffSabol <jeffreysabol345@gmail.com>
+Date:   Mon Aug 19 18:47:26 2024 -0400
+
+    Player added. Environment added. Basic setup and scripts. Assets added.
