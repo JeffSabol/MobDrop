@@ -17,16 +17,37 @@ var peer := ENetMultiplayerPeer.new()
 func _add_player(id = 1):
 	var player = player_scene.instantiate()
 	player.name = str(id)
+	
 	call_deferred("add_child", player)
 
 func _on_join_pressed():
 	peer.create_client("157.230.212.179", 35000)
 	multiplayer.multiplayer_peer = peer
 
+	# Deactivate main menu camera
+	var current_camera = get_viewport().get_camera_2d()
+	if current_camera:
+		current_camera.enabled = false
+	
+	# Instantiate the player scene on the client side
+	var player = player_scene.instantiate()
+	player.name = str(multiplayer.get_unique_id()) # Name the player using their unique ID
+
+	# Add the player to the scene
+	call_deferred("add_child", player)
+
+	# Create and assign the camera to the player
+	var player_camera = Camera2D.new()
+	player.add_child(player_camera) # Add the camera to the player
+
+	# Make this camera the active one for the current player
+	player_camera.make_current()
+	player_camera.enabled = true
+
 @rpc("any_peer")
 func _on_player_disconnected(id):
 	print("Player id left: " + str(id))
-
+	
 	# Remove the player node on the server
 	if get_tree().get_multiplayer().is_server():
 		var player = get_node_or_null(str(id))
