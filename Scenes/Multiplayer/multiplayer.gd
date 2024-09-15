@@ -43,6 +43,9 @@ func _on_join_pressed():
 	# Make this camera the active one for the current player
 	player_camera.make_current()
 	player_camera.enabled = true
+	
+	# Remove the HUD join the server button.
+	$join.queue_free()
 
 @rpc("any_peer")
 func _on_player_disconnected(id):
