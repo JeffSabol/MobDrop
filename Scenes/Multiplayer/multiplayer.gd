@@ -17,6 +17,7 @@ var peer := ENetMultiplayerPeer.new()
 func _add_player(id = 1):
 	var player = player_scene.instantiate()
 	player.name = str(id)
+	player.position = Vector2(850,-350)
 	
 	call_deferred("add_child", player)
 
@@ -32,6 +33,7 @@ func _on_join_pressed():
 	# Instantiate the player scene on the client side
 	var player = player_scene.instantiate()
 	player.name = str(multiplayer.get_unique_id()) # Name the player using their unique ID
+	player.position = Vector2(850,-350)
 
 	# Add the player to the scene
 	call_deferred("add_child", player)

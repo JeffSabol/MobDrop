@@ -98,7 +98,7 @@ func cast_spell(position, is_alternate_spell: bool) -> void:
 		spawn_spell(world_position, is_alternate_spell)
 	rpc("spawn_spell", world_position, is_alternate_spell)
 
-# Function to spawn spell instance across clients
+# Function to spawn spell instance across clientsd
 @rpc("any_peer")
 func spawn_spell(world_position, is_alternate_spell: bool) -> void:
 	var spell_instance = alternate_spell_scene.instantiate() if is_alternate_spell else spell_scene.instantiate()
