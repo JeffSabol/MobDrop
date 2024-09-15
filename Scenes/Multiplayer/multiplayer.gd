@@ -33,20 +33,20 @@ func _on_join_pressed():
 	# Instantiate the player scene on the client side
 	var player = player_scene.instantiate()
 	player.name = str(multiplayer.get_unique_id()) # Name the player using their unique ID
-	player.position = Vector2(850,-350)
+	player.position = Vector2(850, -350)
 
 	# Add the player to the scene
 	call_deferred("add_child", player)
 
 	# Create and assign the camera to the player
 	var player_camera = Camera2D.new()
-	player.add_child(player_camera) # Add the camera to the player
+	player_camera.enabled = true # Enable the camera before making it current
+	player.add_child(player_camera)
 
-	# Make this camera the active one for the current player
-	player_camera.make_current()
-	player_camera.enabled = true
-	
-	# Remove the HUD join the server button.
+	# Ensure the camera is inside the scene tree before calling make_current()
+	player_camera.call_deferred("make_current")
+
+	# Remove the HUD join button
 	$join.queue_free()
 
 @rpc("any_peer")
