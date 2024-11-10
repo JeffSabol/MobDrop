@@ -8,6 +8,7 @@ var state: PlayerState = PlayerState.IDLE
 
 var spell_scene = preload("res://Scenes/Spells/spell.tscn")
 var alternate_spell_scene = preload("res://Scenes/Spells/spell2.tscn")
+var slow_fall_gravity = -600
 @export var health = 3
 
 func _enter_tree() -> void:
@@ -45,14 +46,19 @@ func apply_physics(delta: float) -> void:
 		set_state(PlayerState.JUMP)
 	elif velocity.y > 0:
 		set_state(PlayerState.FALLING)
-
 	# Determine horizontal state
 	if velocity.x == 0 and velocity.y == 0 and state != PlayerState.CAST and state != PlayerState.DEATH:
 		set_state(PlayerState.IDLE)
 	elif velocity.x != 0 and velocity.y == 0:
 		set_state(PlayerState.RUN)
-
+	
 	update_animations()
+	
+	print("velocity.y = " + str(velocity.y))
+	
+	# Handle slow-fall
+	if PlayerState.FALLING and velocity.y != 0:
+		velocity.y += slow_fall_gravity * delta
 
 func update_animations() -> void:
 	match state:
