@@ -13,6 +13,7 @@ var current_element = CurrentElement.WATER
 var is_selecting_spell: bool = false
 var spell_selection_menu: Control = null
 
+var water_spell_1 = preload("res://Scenes/Spells/water_spell_1.tscn")
 var spell_scene = preload("res://Scenes/Spells/spell.tscn")
 var alternate_spell_scene = preload("res://Scenes/Spells/spell2.tscn")
 @export var health = 3
@@ -111,20 +112,19 @@ func sync_state(new_state: PlayerState) -> void:
 func _input(event) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
-			cast_spell(event.position, false)
-		elif event.button_index == MOUSE_BUTTON_RIGHT:
-			cast_spell(event.position, true)
+			cast_spell(event.position, current_element)
 
-func cast_spell(position, is_alternate_spell: bool) -> void:
+func cast_spell(position, spell_type) -> void:
 	var world_position = get_global_mouse_position()
 	if is_multiplayer_authority():
-		spawn_spell(world_position, is_alternate_spell)
-	rpc("spawn_spell", world_position, is_alternate_spell)
+		spawn_spell(world_position)
+	rpc("spawn_spell", world_position)
 
 # Function to spawn spell instance across clients
 @rpc("any_peer")
-func spawn_spell(world_position, is_alternate_spell: bool) -> void:
-	var spell_instance = alternate_spell_scene.instantiate() if is_alternate_spell else spell_scene.instantiate()
+	# TODO add in spell choosing based off selection
+func spawn_spell(world_position) -> void:
+	var spell_instance = water_spell_1.instantiate()
 	spell_instance.position = world_position
 	get_parent().add_child(spell_instance)
 

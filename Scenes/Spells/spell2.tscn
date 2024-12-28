@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://wtkxy0qmh51e" path="res://Assets/Characters/Spells/SPR/06.png" id="1_dfpxe"]
 [ext_resource type="Script" path="res://Scenes/Spells/spell_2.gd" id="2_gsnl3"]
-[ext_resource type="AudioStream" uid="uid://yewtwvb7m871" path="res://Assets/Audio/SFX/Spell.wav" id="3_dg76q"]
+[ext_resource type="AudioStream" path="res://Assets/Audio/SFX/Spell.wav" id="3_dg76q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ppvlq"]
 atlas = ExtResource("1_dfpxe")
