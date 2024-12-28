@@ -22,7 +22,7 @@ func _add_player(id = 1):
 	call_deferred("add_child", player)
 
 func _on_join_pressed():
-	peer.create_client("157.230.212.179", 35000)
+	peer.create_client("104.248.123.73", 35000)
 	multiplayer.multiplayer_peer = peer
 
 	# Deactivate main menu camera
