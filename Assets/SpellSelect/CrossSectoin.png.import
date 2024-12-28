@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b4gwndeggnoly"
-path="res://.godot/imported/CrossSectoin.png-2df57a6ed74b9b4d068d35eab82d5fcf.ctex"
+path="res://.godot/imported/CrossSectoin.png-1a2ef09bcf256df0e40f84dd9ada9e92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Audio/SpellSelect/CrossSectoin.png"
-dest_files=["res://.godot/imported/CrossSectoin.png-2df57a6ed74b9b4d068d35eab82d5fcf.ctex"]
+source_file="res://Assets/SpellSelect/CrossSectoin.png"
+dest_files=["res://.godot/imported/CrossSectoin.png-1a2ef09bcf256df0e40f84dd9ada9e92.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://upitw7hvfxjm"
-path="res://.godot/imported/Ring.png-b20a419815a2b1954990ebbcfb56bde9.ctex"
+uid="uid://bwn7xihxp8hog"
+path="res://.godot/imported/FireSymbol.png-9d442f6e04ed1c4894bb65d29d2bd443.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpellSelect/Ring.png"
-dest_files=["res://.godot/imported/Ring.png-b20a419815a2b1954990ebbcfb56bde9.ctex"]
+source_file="res://Assets/SpellSelect/FireSymbol.png"
+dest_files=["res://.godot/imported/FireSymbol.png-9d442f6e04ed1c4894bb65d29d2bd443.ctex"]
 
 [params]
 

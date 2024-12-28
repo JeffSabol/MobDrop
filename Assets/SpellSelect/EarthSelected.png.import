@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bf41t8mbljf6k"
-path="res://.godot/imported/EarthSelected.png-244b4e46ae78850bb7bff61e0b91a17f.ctex"
+path="res://.godot/imported/EarthSelected.png-650314f606ce40bab49311904a197641.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Audio/SpellSelect/EarthSelected.png"
-dest_files=["res://.godot/imported/EarthSelected.png-244b4e46ae78850bb7bff61e0b91a17f.ctex"]
+source_file="res://Assets/SpellSelect/EarthSelected.png"
+dest_files=["res://.godot/imported/EarthSelected.png-650314f606ce40bab49311904a197641.ctex"]
 
 [params]
 

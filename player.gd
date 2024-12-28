@@ -1,10 +1,17 @@
+# Jeff Sabol
 extends CharacterBody2D
 
 @export var SPEED = 120.0
 @export var JUMP_VELOCITY = -300.0
 
 enum PlayerState {IDLE, RUN, CAST, JUMP, FALLING, DASH, DEATH} 
+enum CurrentElement {WATER, FIRE, ELECTRIC, EARTH}
+
 var state: PlayerState = PlayerState.IDLE
+# The default element
+var current_element = CurrentElement.WATER
+var is_selecting_spell: bool = false
+var spell_selection_menu: Control = null
 
 var spell_scene = preload("res://Scenes/Spells/spell.tscn")
 var alternate_spell_scene = preload("res://Scenes/Spells/spell2.tscn")
@@ -14,7 +21,6 @@ func _enter_tree() -> void:
 	set_multiplayer_authority(name.to_int())
 
 func _ready() -> void:
-	# Any setup that should happen once the node is added to the scene tree
 	pass
 
 func _physics_process(delta: float) -> void:
@@ -54,9 +60,21 @@ func apply_physics(delta: float) -> void:
 		
 	# Handle spell selection
 	if Input.is_action_pressed("ui_select"):
-		print("user is holding down spell select button")
-		# TODO show the spell selection scene
-
+		var root = get_tree().root
+		var world = root.get_child(root.get_child_count() - 1)
+		
+		if not is_selecting_spell:
+			spell_selection_menu = load("res://Scenes/Spells/spell_selection.tscn").instantiate()
+			var client_id = multiplayer.get_unique_id()
+			world.get_node(str(client_id)).add_child(spell_selection_menu)
+			
+		is_selecting_spell = true
+	
+	# Hide the spell selection menu
+	if Input.is_action_just_released("ui_select"):
+		spell_selection_menu.hide()
+		is_selecting_spell = false
+	
 	update_animations()
 
 func update_animations() -> void:
@@ -103,7 +121,7 @@ func cast_spell(position, is_alternate_spell: bool) -> void:
 		spawn_spell(world_position, is_alternate_spell)
 	rpc("spawn_spell", world_position, is_alternate_spell)
 
-# Function to spawn spell instance across clientsd
+# Function to spawn spell instance across clients
 @rpc("any_peer")
 func spawn_spell(world_position, is_alternate_spell: bool) -> void:
 	var spell_instance = alternate_spell_scene.instantiate() if is_alternate_spell else spell_scene.instantiate()
@@ -130,3 +148,14 @@ func kill_player() -> void:
 
 func game_over() -> void:
 	get_tree().quit()
+
+func set_current_element(element_type):
+	match(element_type):
+		CurrentElement.WATER:
+			current_element = CurrentElement.WATER
+		CurrentElement.FIRE:
+			current_element = CurrentElement.FIRE
+		CurrentElement.ELECTRIC:
+			current_element = CurrentElement.ELECTRIC
+		CurrentElement.EARTH:
+			current_element = CurrentElement.EARTH
