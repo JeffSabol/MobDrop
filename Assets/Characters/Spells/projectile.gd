@@ -13,7 +13,7 @@ func launch(p_move_direction: Vector2):
 
 func _integrate_forces(state):
 	# Check if the projectile has stopped moving
-	if linear_velocity.length_squared() < 0.4:
+	if linear_velocity.x < 50 and linear_velocity.x > 0 or linear_velocity.x > -50 and linear_velocity.x < 0:
 		var root = get_tree().root
 		var world = root.get_child(root.get_child_count() - 1)
 		var client_id = multiplayer.get_unique_id()
