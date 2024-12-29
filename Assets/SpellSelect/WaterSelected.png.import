@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1y8237gc6pdo"
-path="res://.godot/imported/WaterSelected.png-a8f1d14e5854b60643c6fad4dfa31cb8.ctex"
+path="res://.godot/imported/WaterSelected.png-4bd58ce0abd2a3506750dd6d37bbfb60.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Audio/SpellSelect/WaterSelected.png"
-dest_files=["res://.godot/imported/WaterSelected.png-a8f1d14e5854b60643c6fad4dfa31cb8.ctex"]
+source_file="res://Assets/SpellSelect/WaterSelected.png"
+dest_files=["res://.godot/imported/WaterSelected.png-4bd58ce0abd2a3506750dd6d37bbfb60.ctex"]
 
 [params]
 

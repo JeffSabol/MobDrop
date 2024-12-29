@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://tdx0v6d7cxs5"
-path="res://.godot/imported/4ColorsSections.png-fb5869957b8b098fd73aaf24fb96da10.ctex"
+path="res://.godot/imported/4ColorsSections.png-95c43b58d244a87584538fa80d194c62.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Audio/SpellSelect/4ColorsSections.png"
-dest_files=["res://.godot/imported/4ColorsSections.png-fb5869957b8b098fd73aaf24fb96da10.ctex"]
+source_file="res://Assets/SpellSelect/4ColorsSections.png"
+dest_files=["res://.godot/imported/4ColorsSections.png-95c43b58d244a87584538fa80d194c62.ctex"]
 
 [params]
 
