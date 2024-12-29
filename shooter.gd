@@ -1,5 +1,5 @@
 class_name Shooter
-extends Node2D
+extends RayCast2D
 # Launches projectiles
 
 @export var fireable: Fireable
@@ -13,9 +13,11 @@ func _ready():
 	assert(projectiles_node != null, "Projectiles node is required for this script to work.")
 
 func try_shoot() -> bool:
-	_shoot()
-	return true
-	
+	if not is_colliding():
+		_shoot()
+		return true
+
+	return false
 
 func _shoot():
 	var projectile = fireable.scene.instantiate()
