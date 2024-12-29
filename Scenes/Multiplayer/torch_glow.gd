@@ -1,3 +1,4 @@
+# Jeff Sabol
 extends Node2D
 
 @onready var point_light : PointLight2D = $"."
@@ -8,9 +9,7 @@ func _ready():
 	glow_effect()
 
 func glow_effect():
-	print("inside gloweffect")
-	# Animate the energy property of the light from 10 to 16 over 4 seconds
+	# Animate the energy property of the light
+	tween.set_loops()
 	tween.tween_property(point_light, "energy", 16, 4)
-
-	# Optionally animate it back from 16 to 10 for a pulsing effect
-	#tween.tween_property(point_light, "energy", 10, 4)
+	tween.tween_property(point_light, "energy", 3, 4)

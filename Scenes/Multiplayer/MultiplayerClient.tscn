@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://crkditcfd2qp4"]
+[gd_scene load_steps=22 format=4 uid="uid://crkditcfd2qp4"]
 
 [ext_resource type="Script" path="res://Scenes/Multiplayer/multiplayer.gd" id="1_wmox0"]
 [ext_resource type="PackedScene" uid="uid://dw4kwarieks75" path="res://player.tscn" id="2_3vt2p"]
@@ -177,6 +177,33 @@ gradient = SubResource("Gradient_qok1y")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="Gradient" id="Gradient_u7h5k"]
+offsets = PackedFloat32Array(0.0021322, 0.731343)
+colors = PackedColorArray(0.719454, 2.55093e-06, 5.77569e-07, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_clqa3"]
+gradient = SubResource("Gradient_u7h5k")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_jy1v1"]
+offsets = PackedFloat32Array(0, 0.692964)
+colors = PackedColorArray(0.7, 0.7, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_24cah"]
+gradient = SubResource("Gradient_jy1v1")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_sk402"]
+offsets = PackedFloat32Array(0, 0.724947)
+colors = PackedColorArray(3.00817e-07, 0.499264, 1.05888e-06, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tl6l6"]
+gradient = SubResource("Gradient_sk402")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="MultiplayerClient" type="Node2D"]
 script = ExtResource("1_wmox0")
 player_scene = ExtResource("2_3vt2p")
@@ -294,9 +321,23 @@ tile_map_data = PackedByteArray("AAA2AO//AAABAAEAAAA2APD/AAABAAIAAAA2APH/AAABAAI
 tile_set = SubResource("TileSet_8pvnt")
 
 [node name="BlueTorchLight" type="PointLight2D" parent="."]
-position = Vector2(-1510, -65)
-energy = 12.0
+position = Vector2(-1510, -66)
 texture = SubResource("GradientTexture2D_squ2n")
+script = ExtResource("9_c4wnu")
+
+[node name="RedTorchLight" type="PointLight2D" parent="."]
+position = Vector2(-1339, -66)
+texture = SubResource("GradientTexture2D_clqa3")
+script = ExtResource("9_c4wnu")
+
+[node name="YellowTorchLight" type="PointLight2D" parent="."]
+position = Vector2(-1166, -66)
+texture = SubResource("GradientTexture2D_24cah")
+script = ExtResource("9_c4wnu")
+
+[node name="GreenTorchLight" type="PointLight2D" parent="."]
+position = Vector2(-994, -66)
+texture = SubResource("GradientTexture2D_tl6l6")
 script = ExtResource("9_c4wnu")
 
 [node name="Join" type="Button" parent="."]
