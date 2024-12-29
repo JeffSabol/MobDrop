@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="MobDrop"
+config/name="Spells 4 The Ducks"
 run/main_scene="res://Scenes/Multiplayer/MultiplayerClient.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://Assets/Characters/Wizard/Wizardgooseassets/Jump (32x32).png"
