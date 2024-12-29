@@ -22,6 +22,7 @@ func _add_player(id = 1):
 	call_deferred("add_child", player)
 
 func _on_join_pressed():
+	$MainMenuMusic.stop()
 	peer.create_client("104.248.123.73", 35000)
 	multiplayer.multiplayer_peer = peer
 
