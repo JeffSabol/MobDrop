@@ -7,6 +7,8 @@ extends CharacterBody2D
 enum PlayerState {IDLE, RUN, CAST, JUMP, FALLING, DASH, DEATH} 
 enum CurrentElement {WATER, FIRE, ELECTRIC, EARTH}
 
+@export var shooter: Shooter
+
 var state: PlayerState = PlayerState.IDLE
 # The default element
 var current_element = CurrentElement.WATER
@@ -39,7 +41,7 @@ func apply_physics(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump
-	if Input.is_action_just_pressed("ui_up") and is_on_floor():
+	if (Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_select")) and is_on_floor():
 		set_state(PlayerState.JUMP)
 		velocity.y = JUMP_VELOCITY
 
@@ -63,7 +65,7 @@ func apply_physics(delta: float) -> void:
 		set_state(PlayerState.RUN)
 		
 	# Handle spell selection
-	if Input.is_action_pressed("ui_select"):
+	if Input.is_action_pressed("spell_select"):
 		var root = get_tree().root
 		var world = root.get_child(root.get_child_count() - 1)
 		
@@ -75,9 +77,13 @@ func apply_physics(delta: float) -> void:
 		is_selecting_spell = true
 	
 	# Hide the spell selection menu
-	if Input.is_action_just_released("ui_select"):
+	if Input.is_action_just_released("spell_select"):
 		spell_selection_menu.hide()
 		is_selecting_spell = false
+		
+	# Handle the projectile shooting
+	if Input.is_action_just_pressed("shoot"):
+		shooter.try_shoot()
 	
 	update_animations()
 

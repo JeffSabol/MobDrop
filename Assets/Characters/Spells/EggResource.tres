@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Fireable" load_steps=4 format=3 uid="uid://brfklsqrmdp0q"]
+
+[ext_resource type="Texture2D" uid="uid://nktsxcj1a7mq" path="res://Assets/Characters/Spells/EggProjectile.png" id="1_0mx5f"]
+[ext_resource type="PackedScene" uid="uid://cv3tftiyjcoh3" path="res://Assets/Characters/Spells/egg.tscn" id="2_x1n36"]
+[ext_resource type="Script" path="res://fireable.gd" id="3_4aluc"]
+
+[resource]
+script = ExtResource("3_4aluc")
+display_name = &"Basic"
+icon = ExtResource("1_0mx5f")
+scene = ExtResource("2_x1n36")
