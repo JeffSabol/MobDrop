@@ -68,3 +68,7 @@ func remove_player_on_clients(id):
 	if player:
 		player.queue_free()
 		print("Removed player node with id: " + str(id) + " on client")
+
+
+func _on_exit_pressed():
+		get_tree().quit();
