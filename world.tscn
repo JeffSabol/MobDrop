@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=4 uid="uid://djuq4ykoo7gst"]
+[gd_scene load_steps=7 format=4 uid="uid://djuq4ykoo7gst"]
 
 [ext_resource type="Texture2D" uid="uid://ddoky6jhug7mm" path="res://Assets/Environment/Dungeon Tile Set.png" id="1_1qjr5"]
-[ext_resource type="Script" path="res://client.gd" id="1_dhi7a"]
 [ext_resource type="Texture2D" uid="uid://yc8kvui8lim6" path="res://Assets/Environment/Old Dungeon/OldDungeon.png" id="1_yoc8x"]
 [ext_resource type="PackedScene" uid="uid://dw4kwarieks75" path="res://player.tscn" id="5_857qb"]
 [ext_resource type="Texture2D" uid="uid://bt2g0c7wqwylq" path="res://Assets/Characters/Wizard/Heart.png" id="12_u1j7k"]
@@ -158,7 +157,6 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_yyw7p")
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_dhi7a")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -327.0
