@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://crkditcfd2qp4"]
+[gd_scene load_steps=23 format=4 uid="uid://crkditcfd2qp4"]
 
 [ext_resource type="Script" path="res://Scenes/Multiplayer/multiplayer.gd" id="1_wmox0"]
 [ext_resource type="PackedScene" uid="uid://dw4kwarieks75" path="res://player.tscn" id="2_3vt2p"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://c80aexw7qeabd" path="res://Assets/Audio/Music/MainMenu.mp3" id="9_0jf46"]
 [ext_resource type="Script" path="res://Scenes/Multiplayer/torch_glow.gd" id="9_c4wnu"]
 [ext_resource type="Theme" uid="uid://dfjk3f6w8y1q2" path="res://Assets/MainMenuButtons.tres" id="9_kklsq"]
+[ext_resource type="Texture2D" uid="uid://d0x1apb6exm14" path="res://Assets/Title_Spells_4_The_Ducks.png" id="12_aymk3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ri4io"]
 texture = ExtResource("3_douiy")
@@ -295,9 +296,9 @@ scale = Vector2(0.34, 0.34)
 texture = ExtResource("5_m01fw")
 
 [node name="Backdrop" type="TextureRect" parent="."]
-offset_left = -1578.0
+offset_left = -1574.0
 offset_top = -249.0
-offset_right = 342.0
+offset_right = 346.0
 offset_bottom = 831.0
 scale = Vector2(0.34, 0.34)
 texture = ExtResource("6_bgc1u")
@@ -384,12 +385,20 @@ theme = ExtResource("9_kklsq")
 text = "EXIT"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-1251, -66)
+position = Vector2(-1248, -67)
 
 [node name="MainMenuMusic" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-1264, -44)
 stream = ExtResource("9_0jf46")
 autoplay = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -1361.0
+offset_top = -213.0
+offset_right = -1180.0
+offset_bottom = -93.0
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("12_aymk3")
 
 [connection signal="pressed" from="Join" to="." method="_on_join_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
