@@ -48,7 +48,7 @@ func _on_join_pressed():
 	player_camera.call_deferred("make_current")
 
 	# Remove the HUD join button
-	$join.queue_free()
+	$Join.queue_free()
 
 @rpc("any_peer")
 func _on_player_disconnected(id):
