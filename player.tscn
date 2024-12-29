@@ -416,6 +416,9 @@ properties/3/replication_mode = 1
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(7, -195)
 script = ExtResource("1_01cc4")
+SPEED = null
+JUMP_VELOCITY = null
+health = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, 0)

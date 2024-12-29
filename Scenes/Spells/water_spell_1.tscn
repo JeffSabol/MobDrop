@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dh5uesgw3822i" path="res://Assets/Characters/Spells/SPR/08.png" id="1_xx887"]
 [ext_resource type="Script" path="res://Scenes/Spells/spell_2.gd" id="2_oyf3f"]
-[ext_resource type="AudioStream" path="res://Assets/Audio/SFX/Spell.wav" id="3_nroko"]
+[ext_resource type="AudioStream" uid="uid://dxv5oc2ltye7l" path="res://Assets/Audio/SFX/Spells/water_droplet.mp3" id="3_1fajn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ame2r"]
 atlas = ExtResource("1_xx887")
@@ -101,7 +101,7 @@ animations = [{
 [node name="Spell" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_ie13v")
 autoplay = "default"
-frame_progress = 0.895989
+frame_progress = 0.24644
 script = ExtResource("2_oyf3f")
 
 [node name="Shock" type="Area2D" parent="."]
@@ -116,7 +116,7 @@ one_shot = true
 autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_nroko")
+stream = ExtResource("3_1fajn")
 volume_db = -16.0
 autoplay = true
 

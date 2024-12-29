@@ -1,0 +1,93 @@
+[gd_scene load_steps=11 format=3 uid="uid://cu5cbg8o6jpug"]
+
+[ext_resource type="Script" path="res://Scenes/Spells/spell_selection.gd" id="1_46efq"]
+[ext_resource type="Texture2D" uid="uid://tdx0v6d7cxs5" path="res://Assets/SpellSelect/4ColorsSections.png" id="1_anoe8"]
+[ext_resource type="Texture2D" uid="uid://vgyc2182aou8" path="res://Assets/SpellSelect/WaterSymbol.png" id="2_vwuw1"]
+[ext_resource type="Texture2D" uid="uid://bwn7xihxp8hog" path="res://Assets/SpellSelect/FireSymbol.png" id="3_45oew"]
+[ext_resource type="Texture2D" uid="uid://dqyvvgln58083" path="res://Assets/SpellSelect/EarthSymbol.png" id="4_bkdar"]
+[ext_resource type="Texture2D" uid="uid://cw026evo73rt8" path="res://Assets/SpellSelect/ElectricSymbol.png" id="5_bhx7f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42220"]
+size = Vector2(133, 134)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vxcpw"]
+size = Vector2(132, 134)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_myb2s"]
+size = Vector2(132, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0c6r4"]
+size = Vector2(132, 130)
+
+[node name="SpellSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_46efq")
+
+[node name="Selector" type="Sprite2D" parent="."]
+texture = ExtResource("1_anoe8")
+
+[node name="WaterSymbol" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -79.0
+offset_top = -67.0
+offset_right = -39.0
+offset_bottom = -27.0
+texture = ExtResource("2_vwuw1")
+
+[node name="FireSymbol" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 45.0
+offset_top = -67.0
+offset_right = 85.0
+offset_bottom = -27.0
+texture = ExtResource("3_45oew")
+
+[node name="EarthSymbol" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 35.0
+offset_right = 87.0
+offset_bottom = 75.0
+texture = ExtResource("4_bkdar")
+
+[node name="ElectricSymbol" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -81.0
+offset_top = 37.0
+offset_right = -41.0
+offset_bottom = 77.0
+texture = ExtResource("5_bhx7f")
+
+[node name="WaterSelectionArea" type="Area2D" parent="."]
+
+[node name="WaterSelectionBox" type="CollisionShape2D" parent="WaterSelectionArea"]
+position = Vector2(-70.5, -70)
+shape = SubResource("RectangleShape2D_42220")
+
+[node name="FireSelectionArea" type="Area2D" parent="."]
+
+[node name="FireSelectionBox" type="CollisionShape2D" parent="FireSelectionArea"]
+position = Vector2(71, -70)
+shape = SubResource("RectangleShape2D_vxcpw")
+
+[node name="ElectricSelectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ElectricSelectionArea"]
+position = Vector2(-70, 71)
+shape = SubResource("RectangleShape2D_myb2s")
+
+[node name="EarthSelectionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EarthSelectionArea"]
+position = Vector2(71, 71)
+shape = SubResource("RectangleShape2D_0c6r4")
+
+[connection signal="mouse_entered" from="WaterSelectionArea" to="." method="_on_water_selection_area_mouse_entered"]
+[connection signal="mouse_entered" from="FireSelectionArea" to="." method="_on_fire_selection_area_mouse_entered"]
+[connection signal="mouse_entered" from="ElectricSelectionArea" to="." method="_on_electric_selection_area_mouse_entered"]
+[connection signal="mouse_entered" from="EarthSelectionArea" to="." method="_on_earth_selection_area_mouse_entered"]

@@ -14,6 +14,9 @@ var is_selecting_spell: bool = false
 var spell_selection_menu: Control = null
 
 var water_spell_1 = preload("res://Scenes/Spells/water_spell_1.tscn")
+var fire_spell_1 = preload("res://Scenes/Spells/fire_spell_1.tscn")
+var electric_spell_1 = preload("res://Scenes/Spells/electric_spell_1.tscn")
+var earth_spell_1 = preload("res://Scenes/Spells/earth_spell_1.tscn")
 var spell_scene = preload("res://Scenes/Spells/spell.tscn")
 var alternate_spell_scene = preload("res://Scenes/Spells/spell2.tscn")
 @export var health = 3
@@ -117,14 +120,23 @@ func _input(event) -> void:
 func cast_spell(position, spell_type) -> void:
 	var world_position = get_global_mouse_position()
 	if is_multiplayer_authority():
-		spawn_spell(world_position)
-	rpc("spawn_spell", world_position)
+		spawn_spell(world_position, current_element)
+	rpc("spawn_spell", world_position, current_element)
 
 # Function to spawn spell instance across clients
 @rpc("any_peer")
+func spawn_spell(world_position, current_element) -> void:
 	# TODO add in spell choosing based off selection
-func spawn_spell(world_position) -> void:
 	var spell_instance = water_spell_1.instantiate()
+	match(current_element):
+		CurrentElement.WATER:
+			spell_instance = water_spell_1.instantiate()
+		CurrentElement.FIRE:
+			spell_instance = fire_spell_1.instantiate()
+		CurrentElement.EARTH:
+			spell_instance = earth_spell_1.instantiate()
+		CurrentElement.ELECTRIC:
+			spell_instance = electric_spell_1.instantiate()
 	spell_instance.position = world_position
 	get_parent().add_child(spell_instance)
 
