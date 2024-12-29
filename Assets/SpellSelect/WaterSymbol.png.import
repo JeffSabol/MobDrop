@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://upitw7hvfxjm"
-path="res://.godot/imported/Ring.png-b20a419815a2b1954990ebbcfb56bde9.ctex"
+uid="uid://vgyc2182aou8"
+path="res://.godot/imported/WaterSymbol.png-8958a6d58680e8b4c42a0a6020e6cd92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpellSelect/Ring.png"
-dest_files=["res://.godot/imported/Ring.png-b20a419815a2b1954990ebbcfb56bde9.ctex"]
+source_file="res://Assets/SpellSelect/WaterSymbol.png"
+dest_files=["res://.godot/imported/WaterSymbol.png-8958a6d58680e8b4c42a0a6020e6cd92.ctex"]
 
 [params]
 

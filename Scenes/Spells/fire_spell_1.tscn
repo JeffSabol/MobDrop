@@ -1,0 +1,109 @@
+[gd_scene load_steps=16 format=3 uid="uid://dnic1morq1vdj"]
+
+[ext_resource type="Texture2D" uid="uid://ddybfhwohsr6i" path="res://Assets/Characters/Spells/SPR/02.png" id="1_hoq33"]
+[ext_resource type="Script" path="res://Scenes/Spells/spell_2.gd" id="2_dcrwv"]
+[ext_resource type="AudioStream" uid="uid://csnlqcp4garw5" path="res://Assets/Audio/SFX/Spells/fire_flamethrower.mp3" id="3_bndga"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utjdi"]
+atlas = ExtResource("1_hoq33")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2i6vp"]
+atlas = ExtResource("1_hoq33")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d42x5"]
+atlas = ExtResource("1_hoq33")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u46gb"]
+atlas = ExtResource("1_hoq33")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8jlg"]
+atlas = ExtResource("1_hoq33")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sc58x"]
+atlas = ExtResource("1_hoq33")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lte5y"]
+atlas = ExtResource("1_hoq33")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x468y"]
+atlas = ExtResource("1_hoq33")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48j6c"]
+atlas = ExtResource("1_hoq33")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npc1s"]
+atlas = ExtResource("1_hoq33")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ie13v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utjdi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2i6vp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d42x5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u46gb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8jlg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sc58x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lte5y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x468y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48j6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npc1s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jy4v2"]
+
+[node name="Spell" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_ie13v")
+autoplay = "default"
+frame_progress = 0.24644
+script = ExtResource("2_dcrwv")
+
+[node name="Shock" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shock"]
+scale = Vector2(2.495, 2.495)
+shape = SubResource("CircleShape2D_jy4v2")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_bndga")
+autoplay = true
+
+[connection signal="area_entered" from="Shock" to="." method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
