@@ -51,6 +51,11 @@ func apply_physics(delta: float) -> void:
 		set_state(PlayerState.IDLE)
 	elif velocity.x != 0 and velocity.y == 0:
 		set_state(PlayerState.RUN)
+		
+	# Handle spell selection
+	if Input.is_action_pressed("ui_select"):
+		print("user is holding down spell select button")
+		# TODO show the spell selection scene
 
 	update_animations()
 
