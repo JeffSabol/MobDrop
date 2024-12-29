@@ -455,6 +455,8 @@ position = Vector2(3263, 3337)
 position = Vector2(-13, 10)
 shape = SubResource("RectangleShape2D_xe7ao")
 
+[node name="MobSpawners" type="Node2D" parent="."]
+
 [connection signal="pressed" from="Join" to="." method="_on_join_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
 [connection signal="body_entered" from="Doors/Door1" to="." method="_on_door_1_body_entered"]

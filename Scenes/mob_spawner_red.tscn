@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm7uctvfum8yd"]
+
+[ext_resource type="Script" path="res://Scenes/mob_spawner_red.gd" id="1_0pmxo"]
+
+[node name="MobSpawnerRed" type="Node2D"]
+position = Vector2(-263, -113)
+script = ExtResource("1_0pmxo")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
