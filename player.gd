@@ -1,8 +1,8 @@
 # Jeff Sabol
 extends CharacterBody2D
 
-@export var SPEED = 120.0
-@export var JUMP_VELOCITY = -300.0
+@export var SPEED = 160.0
+@export var JUMP_VELOCITY = -500.0
 
 enum PlayerState {IDLE, RUN, CAST, JUMP, FALLING, DASH, DEATH} 
 enum CurrentElement {WATER, FIRE, ELECTRIC, EARTH}

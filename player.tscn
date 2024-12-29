@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://hand_anchor.gd" id="10_57irv"]
 [ext_resource type="Script" path="res://shooter.gd" id="10_83lo5"]
 [ext_resource type="Texture2D" uid="uid://sv380oqgk4ue" path="res://Assets/Characters/Wizard/Wand.png" id="10_uuxrw"]
-[ext_resource type="Resource" path="res://Assets/Characters/Spells/EggResource.tres" id="11_3yv1u"]
+[ext_resource type="Resource" uid="uid://brfklsqrmdp0q" path="res://Assets/Characters/Spells/EggResource.tres" id="11_3yv1u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ktyn7"]
 atlas = ExtResource("2_jusky")

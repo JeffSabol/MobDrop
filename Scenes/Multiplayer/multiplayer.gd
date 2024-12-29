@@ -34,7 +34,7 @@ func _on_join_pressed():
 	# Instantiate the player scene on the client side
 	var player = player_scene.instantiate()
 	player.name = str(multiplayer.get_unique_id()) # Name the player using their unique ID
-	player.position = Vector2(850, -350)
+	player.position = Vector2(-1800, 858)
 
 	# Add the player to the scene
 	call_deferred("add_child", player)
@@ -70,6 +70,71 @@ func remove_player_on_clients(id):
 		player.queue_free()
 		print("Removed player node with id: " + str(id) + " on client")
 
-
 func _on_exit_pressed():
 		get_tree().quit();
+
+func _on_door_1_body_entered(body):
+	# Silly hack to detect if it's a player. Other nodes besides the player all have letters in their names.
+	if not has_no_numbers(body.name):
+		var root = get_tree().root
+		var world = root.get_child(root.get_child_count() - 1)
+		# Convert to NodePath to properly grab the player node
+		var player_node_path = NodePath(body.name) 
+		world.get_node(player_node_path).position = Vector2(-1788, 1625)
+
+func has_no_numbers(input_string: String) -> bool:
+	return input_string.find("0") == -1 and input_string.find("1") == -1 and input_string.find("2") == -1 and input_string.find("3") == -1 and input_string.find("4") == -1 and input_string.find("5") == -1 and input_string.find("6") == -1 and input_string.find("7") == -1 and input_string.find("8") == -1 and input_string.find("9") == -1
+
+# What is DRY? Do Repeat Yourself?
+func _on_door_2_body_entered(body):
+	if not has_no_numbers(body.name):
+		var root = get_tree().root
+		var world = root.get_child(root.get_child_count() - 1)
+		# Convert to NodePath to properly grab the player node
+		var player_node_path = NodePath(body.name) 
+		world.get_node(player_node_path).position = Vector2(702, 2001)
+
+
+func _on_door_3_body_entered(body):
+	if not has_no_numbers(body.name):
+		var root = get_tree().root
+		var world = root.get_child(root.get_child_count() - 1)
+		# Convert to NodePath to properly grab the player node
+		var player_node_path = NodePath(body.name) 
+		world.get_node(player_node_path).position = Vector2(2658, 1404)
+
+
+func _on_door_4_body_entered(body):
+	if not has_no_numbers(body.name):
+		var root = get_tree().root
+		var world = root.get_child(root.get_child_count() - 1)
+		# Convert to NodePath to properly grab the player node
+		var player_node_path = NodePath(body.name) 
+		world.get_node(player_node_path).position = Vector2(-1752, 3828)
+
+
+func _on_door_5_body_entered(body):
+	if not has_no_numbers(body.name):
+		var root = get_tree().root
+		var world = root.get_child(root.get_child_count() - 1)
+		# Convert to NodePath to properly grab the player node
+		var player_node_path = NodePath(body.name) 
+		world.get_node(player_node_path).position = Vector2(846, 3262)
+
+
+func _on_door_6_body_entered(body):
+	if not has_no_numbers(body.name):
+		var root = get_tree().root
+		var world = root.get_child(root.get_child_count() - 1)
+		# Convert to NodePath to properly grab the player node
+		var player_node_path = NodePath(body.name) 
+		world.get_node(player_node_path).position = Vector2(2483, 3322)
+
+
+func _on_door_7_body_entered(body):
+	if not has_no_numbers(body.name):
+		var root = get_tree().root
+		var world = root.get_child(root.get_child_count() - 1)
+		# Convert to NodePath to properly grab the player node
+		var player_node_path = NodePath(body.name) 
+		world.get_node(player_node_path).position = Vector2(727, 5481)
