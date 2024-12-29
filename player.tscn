@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://dw4kwarieks75"]
+[gd_scene load_steps=66 format=3 uid="uid://dw4kwarieks75"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_01cc4"]
 [ext_resource type="Texture2D" uid="uid://drcwjny0fsmfp" path="res://Assets/Characters/Wizard/Wizardgooseassets/Lay(64x64).png" id="2_jusky"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bj5tqy1a1sbeh" path="res://Assets/Characters/Wizard/Wizardgooseassets/Jump (32x32).png" id="7_irqyx"]
 [ext_resource type="Texture2D" uid="uid://bbkyjah7i1ocv" path="res://Assets/Characters/Wizard/Wizardgooseassets/Run (64x64)-sheet.png" id="8_pw0qa"]
 [ext_resource type="Texture2D" uid="uid://cb4diirxy1bfd" path="res://Assets/Characters/Wizard/Wizardgooseassets/Turdblast.png" id="9_5tbtp"]
+[ext_resource type="Script" path="res://hand_anchor.gd" id="10_57irv"]
 [ext_resource type="Script" path="res://shooter.gd" id="10_83lo5"]
 [ext_resource type="Texture2D" uid="uid://sv380oqgk4ue" path="res://Assets/Characters/Wizard/Wand.png" id="10_uuxrw"]
 [ext_resource type="Resource" uid="uid://brfklsqrmdp0q" path="res://Assets/Characters/Spells/EggResource.tres" id="11_3yv1u"]
@@ -419,7 +420,7 @@ properties/3/replication_mode = 1
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("shooter")]
 position = Vector2(7, -195)
 script = ExtResource("1_01cc4")
-shooter = NodePath("Shooter")
+shooter = NodePath("HandAnchor/Shooter")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, 0)
@@ -435,12 +436,16 @@ shape = SubResource("RectangleShape2D_0o1sq")
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_mgil4")
 
-[node name="Shooter" type="Node2D" parent="."]
-position = Vector2(11, 4)
+[node name="HandAnchor" type="Node2D" parent="."]
+position = Vector2(-1, 5)
+script = ExtResource("10_57irv")
+
+[node name="Shooter" type="Node2D" parent="HandAnchor"]
+position = Vector2(32, 1)
 script = ExtResource("10_83lo5")
 fireable = ExtResource("11_3yv1u")
 
-[node name="WandSprite" type="Sprite2D" parent="Shooter"]
-position = Vector2(13, 1)
+[node name="WandSprite" type="Sprite2D" parent="HandAnchor/Shooter"]
+position = Vector2(-10, 0)
 rotation = 1.5708
 texture = ExtResource("10_uuxrw")

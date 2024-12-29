@@ -4,6 +4,7 @@ extends Node2D
 
 @export var fireable: Fireable
 @export var projectiles_parent_group = "projectile_parent"
+@export var default_direction = Vector2.RIGHT
 
 var projectiles_node: Node
 
@@ -17,6 +18,9 @@ func try_shoot() -> bool:
 	
 
 func _shoot():
-	var projectile = fireable.scene.instantiate() as Projectile
+	var projectile = fireable.scene.instantiate()
 	projectiles_node.add_child(projectile)
+	projectile.name = fireable.display_name
 	projectile.global_position = global_position
+	var launch_direction = default_direction.rotated(global_rotation)
+	projectile.launch(launch_direction)
