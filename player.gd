@@ -11,7 +11,7 @@ enum CurrentElement {WATER, FIRE, ELECTRIC, EARTH}
 
 var state: PlayerState = PlayerState.IDLE
 # The default element
-var current_element = CurrentElement.WATER
+@export var current_element = CurrentElement.WATER
 var is_selecting_spell: bool = false
 var spell_selection_menu: Control = null
 
@@ -118,16 +118,10 @@ func sync_state(new_state: PlayerState) -> void:
 	state = new_state
 	update_animations()
 
-func _input(event) -> void:
-	if event is InputEventMouseButton and event.pressed:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			cast_spell(event.position, current_element)
-
 func cast_spell(position, spell_type) -> void:
-	var world_position = get_global_mouse_position()
 	if is_multiplayer_authority():
-		spawn_spell(world_position, current_element)
-	rpc("spawn_spell", world_position, current_element)
+		spawn_spell(position, current_element)
+	rpc("spawn_spell", position, current_element)
 
 # Function to spawn spell instance across clients
 @rpc("any_peer")
