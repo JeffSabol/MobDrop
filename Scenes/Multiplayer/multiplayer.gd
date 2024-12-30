@@ -23,6 +23,7 @@ func _add_player(id = 1):
 
 func _on_join_pressed():
 	$MainMenuMusic.stop()
+	$BlueMusic.play()
 	peer.create_client("104.248.123.73", 35000)
 	multiplayer.multiplayer_peer = peer
 
@@ -76,6 +77,8 @@ func _on_exit_pressed():
 func _on_door_1_body_entered(body):
 	# Silly hack to detect if it's a player. Other nodes besides the player all have letters in their names.
 	if not has_no_numbers(body.name):
+		$BlueMusic.stop()
+		$RedMusic.play()
 		var root = get_tree().root
 		var world = root.get_child(root.get_child_count() - 1)
 		# Convert to NodePath to properly grab the player node
@@ -88,6 +91,8 @@ func has_no_numbers(input_string: String) -> bool:
 # What is DRY? Do Repeat Yourself?
 func _on_door_2_body_entered(body):
 	if not has_no_numbers(body.name):
+		$RedMusic.stop()
+		$YellowMusic.play()
 		var root = get_tree().root
 		var world = root.get_child(root.get_child_count() - 1)
 		# Convert to NodePath to properly grab the player node
@@ -97,6 +102,8 @@ func _on_door_2_body_entered(body):
 
 func _on_door_3_body_entered(body):
 	if not has_no_numbers(body.name):
+		$YellowMusic.stop()
+		$EarthMusic.play()
 		var root = get_tree().root
 		var world = root.get_child(root.get_child_count() - 1)
 		# Convert to NodePath to properly grab the player node
@@ -106,6 +113,8 @@ func _on_door_3_body_entered(body):
 
 func _on_door_4_body_entered(body):
 	if not has_no_numbers(body.name):
+		$EarthMusic.stop()
+		$BlueMusic.play()
 		var root = get_tree().root
 		var world = root.get_child(root.get_child_count() - 1)
 		# Convert to NodePath to properly grab the player node
@@ -115,6 +124,8 @@ func _on_door_4_body_entered(body):
 
 func _on_door_5_body_entered(body):
 	if not has_no_numbers(body.name):
+		$BlueMusic.stop()
+		$RedMusic.play()
 		var root = get_tree().root
 		var world = root.get_child(root.get_child_count() - 1)
 		# Convert to NodePath to properly grab the player node

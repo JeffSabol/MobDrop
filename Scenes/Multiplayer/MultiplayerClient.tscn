@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://crkditcfd2qp4"]
+[gd_scene load_steps=32 format=4 uid="uid://crkditcfd2qp4"]
 
 [ext_resource type="Script" path="res://Scenes/Multiplayer/multiplayer.gd" id="1_wmox0"]
 [ext_resource type="PackedScene" uid="uid://dw4kwarieks75" path="res://player.tscn" id="2_3vt2p"]
@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://cm7uctvfum8yd" path="res://Scenes/mob_spawner_red.tscn" id="14_056ws"]
 [ext_resource type="PackedScene" uid="uid://ckjpkynpck885" path="res://Scenes/mob_spawner_yellow.tscn" id="15_wiigv"]
 [ext_resource type="PackedScene" uid="uid://bmyvoaeunwidq" path="res://Scenes/mob_spawner_green.tscn" id="16_24sad"]
+[ext_resource type="AudioStream" uid="uid://c1gqya12pytre" path="res://Assets/Audio/Music/WaterLevel.mp3" id="17_8uk77"]
+[ext_resource type="AudioStream" uid="uid://bwl5rutgunu1j" path="res://Assets/Audio/Music/FireLevel.mp3" id="18_3sxa3"]
+[ext_resource type="AudioStream" uid="uid://dvuieb7swcbg3" path="res://Assets/Audio/Music/ElectricLevel.mp3" id="19_n80i6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ri4io"]
 texture = ExtResource("3_douiy")
@@ -233,6 +236,8 @@ fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xe7ao"]
 size = Vector2(32, 63)
+
+[sub_resource type="AudioStream" id="AudioStream_cd2td"]
 
 [node name="MultiplayerClient" type="Node2D"]
 script = ExtResource("1_wmox0")
@@ -585,6 +590,18 @@ offset_bottom = 1650.0
 text = "Shoot the monsters with 
 the matching color
 to kill"
+
+[node name="BlueMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_8uk77")
+
+[node name="RedMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_3sxa3")
+
+[node name="YellowMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_n80i6")
+
+[node name="EarthMusic" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStream_cd2td")
 
 [connection signal="pressed" from="Join" to="." method="_on_join_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
