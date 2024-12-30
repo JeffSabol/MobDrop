@@ -86,7 +86,7 @@ size = Vector2(12, 12)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1fe0u"]
 size = Vector2(28, 30)
 
-[node name="Eyeball" type="Node2D"]
+[node name="EyeballYellow" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -102,12 +102,12 @@ autoplay = "walk"
 position = Vector2(0, 14)
 shape = SubResource("RectangleShape2D_16qbx")
 
-[node name="Eyeball" type="Area2D" parent="CharacterBody2D"]
+[node name="EyeballYellow" type="Area2D" parent="CharacterBody2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Eyeball"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/EyeballYellow"]
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_1fe0u")
 
-[connection signal="area_entered" from="CharacterBody2D/Eyeball" to="CharacterBody2D" method="_on_area_2d_area_entered"]
-[connection signal="area_entered" from="CharacterBody2D/Eyeball" to="CharacterBody2D" method="_on_dragon_area_entered"]
-[connection signal="body_entered" from="CharacterBody2D/Eyeball" to="CharacterBody2D" method="_on_dragon_body_entered"]
+[connection signal="area_entered" from="CharacterBody2D/EyeballYellow" to="CharacterBody2D" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="CharacterBody2D/EyeballYellow" to="CharacterBody2D" method="_on_dragon_area_entered"]
+[connection signal="body_entered" from="CharacterBody2D/EyeballYellow" to="CharacterBody2D" method="_on_dragon_body_entered"]

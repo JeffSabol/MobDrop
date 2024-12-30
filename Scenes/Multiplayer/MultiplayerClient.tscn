@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://crkditcfd2qp4"]
+[gd_scene load_steps=25 format=4 uid="uid://crkditcfd2qp4"]
 
 [ext_resource type="Script" path="res://Scenes/Multiplayer/multiplayer.gd" id="1_wmox0"]
 [ext_resource type="PackedScene" uid="uid://dw4kwarieks75" path="res://player.tscn" id="2_3vt2p"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Scenes/Multiplayer/torch_glow.gd" id="9_c4wnu"]
 [ext_resource type="Theme" uid="uid://dfjk3f6w8y1q2" path="res://Assets/MainMenuButtons.tres" id="9_kklsq"]
 [ext_resource type="Texture2D" uid="uid://d0x1apb6exm14" path="res://Assets/Title_Spells_4_The_Ducks.png" id="12_aymk3"]
+[ext_resource type="PackedScene" uid="uid://bqv6glwfk0cb8" path="res://Scenes/mob_spawner_blue.tscn" id="13_vt557"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ri4io"]
 texture = ExtResource("3_douiy")
@@ -456,6 +457,9 @@ position = Vector2(-13, 10)
 shape = SubResource("RectangleShape2D_xe7ao")
 
 [node name="MobSpawners" type="Node2D" parent="."]
+
+[node name="MobSpawnerBlue" parent="MobSpawners" instance=ExtResource("13_vt557")]
+position = Vector2(-1297, 874)
 
 [node name="Label" type="Label" parent="."]
 offset_left = -1282.0

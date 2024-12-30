@@ -126,7 +126,6 @@ func cast_spell(position, spell_type) -> void:
 # Function to spawn spell instance across clients
 @rpc("any_peer")
 func spawn_spell(world_position, current_element) -> void:
-	# TODO add in spell choosing based off selection
 	var spell_instance = water_spell_1.instantiate()
 	match(current_element):
 		CurrentElement.WATER:
