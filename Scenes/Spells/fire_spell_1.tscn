@@ -1,7 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://dnic1morq1vdj"]
+[gd_scene load_steps=16 format=3 uid="uid://pd7vblldtotr"]
 
 [ext_resource type="Texture2D" uid="uid://ddybfhwohsr6i" path="res://Assets/Characters/Spells/SPR/02.png" id="1_hoq33"]
-[ext_resource type="Script" path="res://Scenes/Spells/spell_2.gd" id="2_dcrwv"]
+[ext_resource type="Script" path="res://Scenes/Spells/fire_spell_1.gd" id="2_exrku"]
 [ext_resource type="AudioStream" uid="uid://csnlqcp4garw5" path="res://Assets/Audio/SFX/Spells/fire_flamethrower.mp3" id="3_bndga"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_utjdi"]
@@ -88,7 +88,7 @@ animations = [{
 sprite_frames = SubResource("SpriteFrames_ie13v")
 autoplay = "default"
 frame_progress = 0.24644
-script = ExtResource("2_dcrwv")
+script = ExtResource("2_exrku")
 
 [node name="Shock" type="Area2D" parent="."]
 

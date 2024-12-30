@@ -1,7 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://c0dgjoccbnchj"]
+[gd_scene load_steps=18 format=3 uid="uid://d2logb3cmh2bl"]
 
 [ext_resource type="Texture2D" uid="uid://dh5uesgw3822i" path="res://Assets/Characters/Spells/SPR/08.png" id="1_xx887"]
-[ext_resource type="Script" path="res://Scenes/Spells/spell_2.gd" id="2_oyf3f"]
+[ext_resource type="Script" path="res://Scenes/Spells/water_spell_1.gd" id="2_q15ie"]
 [ext_resource type="AudioStream" uid="uid://dxv5oc2ltye7l" path="res://Assets/Audio/SFX/Spells/water_droplet.mp3" id="3_1fajn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ame2r"]
@@ -102,7 +102,7 @@ animations = [{
 sprite_frames = SubResource("SpriteFrames_ie13v")
 autoplay = "default"
 frame_progress = 0.24644
-script = ExtResource("2_oyf3f")
+script = ExtResource("2_q15ie")
 
 [node name="Shock" type="Area2D" parent="."]
 

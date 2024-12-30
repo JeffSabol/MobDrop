@@ -1,8 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://c0bj3573syuk6"]
+[gd_scene load_steps=17 format=3 uid="uid://bsi4c1qi07xfb"]
 
 [ext_resource type="Texture2D" uid="uid://51hknqoacq7u" path="res://Assets/Characters/Spells/SPR/16.png" id="1_xr0nj"]
-[ext_resource type="Script" path="res://Scenes/Spells/spell_2.gd" id="2_5bqc1"]
 [ext_resource type="AudioStream" uid="uid://b2ig4dxifbahn" path="res://Assets/Audio/SFX/Spells/earth_leaves.mp3" id="2_bwts0"]
+[ext_resource type="Script" path="res://Scenes/Spells/earth_spell_1.gd" id="2_viwbm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_04bdr"]
 atlas = ExtResource("1_xr0nj")
@@ -95,7 +95,7 @@ animations = [{
 sprite_frames = SubResource("SpriteFrames_ie13v")
 autoplay = "default"
 frame_progress = 0.24644
-script = ExtResource("2_5bqc1")
+script = ExtResource("2_viwbm")
 
 [node name="Shock" type="Area2D" parent="."]
 
