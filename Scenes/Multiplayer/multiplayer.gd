@@ -76,6 +76,7 @@ func _on_exit_pressed():
 
 func _on_door_1_body_entered(body):
 	# Silly hack to detect if it's a player. Other nodes besides the player all have letters in their names.
+	# TODO need to fix bug when enemies or spells collide with the door, then the game crashes
 	if not has_no_numbers(body.name):
 		$BlueMusic.stop()
 		$RedMusic.play()
